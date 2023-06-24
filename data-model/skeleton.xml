@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<metadata:project xmlns:metadata="http://generator.sklsft.org/schema/model/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://generator.sklsft.org/schema/model/metadata skeleton-metadata-4.0.xsd">
+    <domainName>com.afklm.cargo</domainName>
+    <projectName>cgoml</projectName>
+    <skeleton>SPRING_HIBERNATE_ANGULAR</skeleton>
+    <databaseEngine>POSTGRESQL</databaseEngine>
+    <audited>false</audited>
+    <packages>
+    	<package name="MESSAGING">
+			<tables>
+				<table name="INBOUND_MESSAGE" cardinality="1" idType="LONG"
+					listRendering="Inbound messages"
+					detailRendering="Inbound message" createEnabled="false"
+					updateEnabled="false" deleteEnabled="false">
+					<columns>
+						<column name="UUID" dataType="STRING" nullable="false"
+							editable="false" rendering="UUID">
+						</column>
+						<column name="RECEPTION_DATE" dataType="DATETIME" nullable="false"
+							editable="false" rendering="Reception date">
+						</column>
+						<column name="MESSAGE_TYPE" dataType="STRING" nullable="true"
+							editable="false" rendering="Message Type">
+						</column>
+						<column name="CONTENT" dataType="TEXT" nullable="true"
+							editable="false" rendering="Content" visibility="NOT_LIST">
+						</column>
+						<column name="STATUS" dataType="STRING" nullable="true"
+							editable="false" rendering="Status">
+						</column>
+					</columns>
+				</table>
+				<table name="OUTBOUND_MESSAGE" cardinality="1" idType="LONG"
+					listRendering="Outbound messages"
+					detailRendering="Outbound message" createEnabled="false"
+					updateEnabled="false" deleteEnabled="false">
+					<columns>
+						<column name="UUID" dataType="STRING" nullable="false"
+							editable="false" rendering="UUID">
+						</column>
+						<column name="RECEPTION_DATE" dataType="DATETIME" nullable="false"
+							editable="false" rendering="Reception date">
+						</column>
+						<column name="MESSAGE_TYPE" dataType="STRING" nullable="true"
+							editable="false" rendering="Message Type">
+						</column>
+						<column name="CONTENT" dataType="TEXT" nullable="true"
+							editable="false" rendering="Content" visibility="NOT_LIST">
+						</column>
+					</columns>
+				</table>
+			</tables>
+		</package>
+	</packages>
+</metadata:project>

@@ -1,0 +1,46 @@
+<!-- -->
+<!-- auto generated details component html file -->
+<!-- write modifications between specific code marks -->
+<!-- processed by skeleton generator -->
+<!-- -->
+
+<app-outbound-message-menu  #menu [activePath]="activePath" [id]="id"></app-outbound-message-menu>
+
+<h2>
+Outbound message
+</h2>
+
+<div class="details-form" >
+<form [formGroup]="form" (ngSubmit)="update()">
+<p>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>UUID</mat-label>
+<input matInput placeholder="UUID" formControlName="uuid"/>
+</mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Reception date</mat-label>
+<input matInput placeholder="yyyy-MM-ddTHH:mm:ssZ" formControlName="receptionDate"/>
+</mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Message Type</mat-label>
+<input matInput placeholder="Message Type" formControlName="messageType"/>
+</mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Content</mat-label>
+<textarea matInput placeholder="Content" formControlName="content" cdkTextareaAutosize></textarea>
+</mat-form-field>
+</p>
+
+</form>
+<!-- Specific Code Start -->
+<!-- Specific Code End -->
+</div>

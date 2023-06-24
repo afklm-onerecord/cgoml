@@ -1,0 +1,9 @@
+ALTER TABLE OUTBOUND_MESSAGE ADD CONSTRAINT UC_OUTBOUND_MESSAGE UNIQUE (UUID);
+/
+
+-- table foreign keys and indexes --
+CREATE INDEX IDX_OUTBOUND_MESSAGE_UC ON OUTBOUND_MESSAGE(UUID);
+/
+
+-- Specific Code Start --
+-- Specific Code End --

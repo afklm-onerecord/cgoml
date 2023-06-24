@@ -1,0 +1,66 @@
+<!-- -->
+<!-- auto generated list component html file -->
+<!-- write modifications between specific code marks -->
+<!-- processed by skeleton generator -->
+<!-- -->
+
+<h2>
+Inbound messages: {{scrollView.count}} / {{scrollView.size}}
+</h2>
+
+<form [formGroup]="filter">
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>UUID</mat-label>
+<input matInput placeholder="UUID" formControlName="uuid"/>
+</mat-form-field>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Reception date Min</mat-label>
+<input matInput placeholder="yyyy-MM-ddTHH:mm:ssZ" formControlName="receptionDateMinValue"/>
+</mat-form-field>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Reception date Max</mat-label>
+<input matInput placeholder="yyyy-MM-ddTHH:mm:ssZ" formControlName="receptionDateMaxValue"/>
+</mat-form-field>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Message Type</mat-label>
+<input matInput placeholder="Message Type" formControlName="messageType"/>
+</mat-form-field>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Status</mat-label>
+<input matInput placeholder="Status" formControlName="status"/>
+</mat-form-field>
+</form>
+<mat-table [dataSource]="dataSource" matSort>
+<ng-container matColumnDef="uuid">
+<mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">UUID</mat-header-cell>
+<mat-cell *matCellDef="let element"> {{element.uuid}} </mat-cell>
+</ng-container>
+<ng-container matColumnDef="receptionDate">
+<mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">Reception date</mat-header-cell>
+<mat-cell *matCellDef="let element"> {{element.receptionDate| date:'yyyy-MM-ddTHH:mm:ssZ':'GMT'}} </mat-cell>
+</ng-container>
+<ng-container matColumnDef="messageType">
+<mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">Message Type</mat-header-cell>
+<mat-cell *matCellDef="let element"> {{element.messageType}} </mat-cell>
+</ng-container>
+<ng-container matColumnDef="status">
+<mat-header-cell *matHeaderCellDef mat-sort-header class="table-header">Status</mat-header-cell>
+<mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+</ng-container>
+<ng-container matColumnDef="Actions">
+<mat-header-cell *matHeaderCellDef class="table-header">Actions</mat-header-cell>
+<mat-cell *matCellDef="let element">
+<a class="margin-10" (click)="edit(element.id)"><mat-icon aria-label="Edit" svgIcon="pencil" class="text-success"></mat-icon></a>
+</mat-cell>
+</ng-container>
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator #paginator [length]="scrollView.count"
+[pageSize]="scrollForm.elementsPerPage"
+[showFirstLastButtons]="true"
+[pageSizeOptions]="pageSizeOptions">
+</mat-paginator>
+
+<!-- Specific Code Start -->
+<!-- Specific Code End -->
