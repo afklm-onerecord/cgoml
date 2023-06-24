@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ULDManifest
+    xmlns="iata:datamodel:3"
+    xmlns:ns2="iata:uldmanifest:1">
+    <ns2:BusinessHeaderDocument>
+        <IssueDateTime>2023-06-5T21:57:22</IssueDateTime>
+        <UnitLoadDeviceQuantity>0</UnitLoadDeviceQuantity>
+        <ShipmentQuantity>6</ShipmentQuantity>
+        <HouseWaybillQuantity>0</HouseWaybillQuantity>
+        <LoadedPieceQuantity>12</LoadedPieceQuantity>
+    </ns2:BusinessHeaderDocument>
+    <ns2:UnitLoadTransportEquipment>
+        <SequenceNumeric>1</SequenceNumeric>
+        <MainIndicator>true</MainIndicator>
+        <CharacteristicCode>PMC</CharacteristicCode>
+        <ID>24269</ID>
+        <OperatingParty>
+            <PrimaryID schemeAgencyID="3">AF</PrimaryID>
+        </OperatingParty>
+        <PieceQuantity>12</PieceQuantity>
+        <GrossWeightMeasure unitCode="KGM">2500</GrossWeightMeasure>
+        <Information>vrac cdg</Information>
+        <LoadIncludedIndicator>true</LoadIncludedIndicator>
+        <ContourCode>PLD</ContourCode>
+        <LoadingEvent>
+            <OccurrenceLoadingLocation>
+                <ID>SFO</ID>
+                <Name>SAN FRANCISCO INTERNATIONAL AIRPORT</Name>
+            </OccurrenceLoadingLocation>
+        </LoadingEvent>
+        <UnloadingEvent>
+            <OccurrenceUnloadingLocation>
+                <ID>CDG</ID>
+                <Name>CHARLES DE GAULLE AIRPORT</Name>
+            </OccurrenceUnloadingLocation>
+        </UnloadingEvent>
+        <MainCarriageLogisticsTransportMovement>
+            <ID>0125D</ID>
+            <UsedLogisticsTransportMeans>
+                <ID>AF</ID>
+            </UsedLogisticsTransportMeans>
+            <ArrivalEvent>
+                <OccurrenceArrivalLocation>
+                    <ID>CDG</ID>
+                    <Name>CHARLES DE GAULLE AIRPORT</Name>
+                </OccurrenceArrivalLocation>
+            </ArrivalEvent>
+            <DepartureEvent>
+                <ScheduledOccurrenceDateTime>2023-06-26T14:55:00</ScheduledOccurrenceDateTime>
+            </DepartureEvent>
+        </MainCarriageLogisticsTransportMovement>
+        <ContainedMasterConsignment>
+            <IncludedTareGrossWeightMeasure unitCode="KGM">500</IncludedTareGrossWeightMeasure>
+            <GrossVolumeMeasure unitCode="MTQ">1</GrossVolumeMeasure>
+            <PieceQuantity>2</PieceQuantity>
+            <TotalPieceQuantity>4</TotalPieceQuantity>
+            <SummaryDescription>CONSOLIDATION CARGO AS PER ATTACHED MANI</SummaryDescription>
+            <TransportEquipmentSplitGoodsIndicator>false</TransportEquipmentSplitGoodsIndicator>
+            <TransportContractDocument>
+                <ID>057-97502974</ID>
+            </TransportContractDocument>
+            <OriginLocation>
+                <ID>SFO</ID>
+                <Name>SAN FRANCISCO INTERNATIONAL AIRPORT</Name>
+            </OriginLocation>
+            <FinalDestinationLocation>
+                <ID>SFO</ID>
+                <Name>SAN FRANCISCO INTERNATIONAL AIRPORT</Name>
+            </FinalDestinationLocation>
+            <SpecifiedLogisticsTransportMovement>
+                <ID>083</ID>
+                <UsedLogisticsTransportMeans>
+                    <ID>AF</ID>
+                </UsedLogisticsTransportMeans>
+                <ArrivalEvent>
+                    <OccurrenceArrivalLocation>
+                        <ID>CDG</ID>
+                        <Name>CHARLES DE GAULLE AIRPORT</Name>
+                    </OccurrenceArrivalLocation>
+                </ArrivalEvent>
+                <DepartureEvent>
+                    <ScheduledOccurrenceDateTime>2023-06-26T14:55:00</ScheduledOccurrenceDateTime>
+                </DepartureEvent>
+        	</SpecifiedLogisticsTransportMovement>
+        </ContainedMasterConsignment>
+        <ContainedMasterConsignment>
+            <IncludedTareGrossWeightMeasure unitCode="KGM">500</IncludedTareGrossWeightMeasure>
+            <GrossVolumeMeasure unitCode="MTQ">1</GrossVolumeMeasure>
+            <PieceQuantity>2</PieceQuantity>
+            <TotalPieceQuantity>4</TotalPieceQuantity>
+            <SummaryDescription>CONSOLIDATION</SummaryDescription>
+            <TransportEquipmentSplitGoodsIndicator>true</TransportEquipmentSplitGoodsIndicator>
+            <TransportContractDocument>
+                <ID>057-97502985</ID>
+            </TransportContractDocument>
+            <OriginLocation>
+                <ID>SFO</ID>
+                <Name>SAN FRANCISCO INTERNATIONAL AIRPORT</Name>
+            </OriginLocation>
+            <FinalDestinationLocation>
+                <ID>CDG</ID>
+                <Name>CHARLES DE GAULLE AIRPORT</Name>
+            </FinalDestinationLocation>
+            <SpecifiedLogisticsTransportMovement>
+                <ID>083</ID>
+                <UsedLogisticsTransportMeans>
+                    <ID>AF</ID>
+                </UsedLogisticsTransportMeans>
+                <ArrivalEvent>
+                    <OccurrenceArrivalLocation>
+                        <ID>CDG</ID>
+                        <Name>CHARLES DE GAULLE AIRPORT</Name>
+                    </OccurrenceArrivalLocation>
+                </ArrivalEvent>
+                <DepartureEvent>
+                    <ScheduledOccurrenceDateTime>2023-06-26T14:55:00</ScheduledOccurrenceDateTime>
+                </DepartureEvent>
+            </SpecifiedLogisticsTransportMovement>
+        </ContainedMasterConsignment>
+        <ContainedMasterConsignment>
+            <IncludedTareGrossWeightMeasure unitCode="KGM">500</IncludedTareGrossWeightMeasure>
+            <GrossVolumeMeasure unitCode="MTQ">1</GrossVolumeMeasure>
+            <PieceQuantity>2</PieceQuantity>
+            <TotalPieceQuantity>4</TotalPieceQuantity>
+            <SummaryDescription>air conditioning equipment</SummaryDescription>
+            <TransportEquipmentSplitGoodsIndicator>true</TransportEquipmentSplitGoodsIndicator>
+            <TransportContractDocument>
+                <ID>057-97502996</ID>
+            </TransportContractDocument>
+            <OriginLocation>
+                <ID>SFO</ID>
+                <Name>SAN FRANCISCO INTERNATIONAL AIRPORT</Name>
+            </OriginLocation>
+            <FinalDestinationLocation>
+                <ID>CDG</ID>
+                <Name>CHARLES DE GAULLE AIRPORT</Name>
+            </FinalDestinationLocation>
+            <SpecifiedLogisticsTransportMovement>
+                <ID>083</ID>
+                <UsedLogisticsTransportMeans>
+                    <ID>AF</ID>
+                </UsedLogisticsTransportMeans>
+                <ArrivalEvent>
+                    <OccurrenceArrivalLocation>
+                        <ID>CDG</ID>
+                        <Name>CHARLES DE GAULLE AIRPORT</Name>
+                    </OccurrenceArrivalLocation>
+                </ArrivalEvent>
+                <DepartureEvent>
+                    <ScheduledOccurrenceDateTime>2023-06-26T14:55:00</ScheduledOccurrenceDateTime>
+                </DepartureEvent>
+            </SpecifiedLogisticsTransportMovement>
+        </ContainedMasterConsignment>
+        <ContainedMasterConsignment>
+            <IncludedTareGrossWeightMeasure unitCode="KGM">1000</IncludedTareGrossWeightMeasure>
+            <GrossVolumeMeasure unitCode="MTQ">1</GrossVolumeMeasure>
+            <PieceQuantity>2</PieceQuantity>
+            <TotalPieceQuantity>4</TotalPieceQuantity>
+            <SummaryDescription>CONSOLIDATION</SummaryDescription>
+            <TransportEquipmentSplitGoodsIndicator>false</TransportEquipmentSplitGoodsIndicator>
+            <TransportContractDocument>
+                <ID>057-97503416</ID>
+            </TransportContractDocument>
+            <OriginLocation>
+                <ID>SFO</ID>
+                <Name>SAN FRANCISCO INTERNATIONAL AIRPORT</Name>
+            </OriginLocation>
+            <FinalDestinationLocation>
+                <ID>CDG</ID>
+                <Name>CHARLES DE GAULLE AIRPORT</Name>
+            </FinalDestinationLocation>
+            <SpecifiedLogisticsTransportMovement>
+                <ID>083</ID>
+                <UsedLogisticsTransportMeans>
+                    <ID>AF</ID>
+                </UsedLogisticsTransportMeans>
+                <ArrivalEvent>
+                    <OccurrenceArrivalLocation>
+                        <ID>CDG</ID>
+                        <Name>CHARLES DE GAULLE AIRPORT</Name>
+                    </OccurrenceArrivalLocation>
+                </ArrivalEvent>
+                <DepartureEvent>
+                    <ScheduledOccurrenceDateTime>2023-06-26T14:55:00</ScheduledOccurrenceDateTime>
+                </DepartureEvent>
+            </SpecifiedLogisticsTransportMovement>
+            <HandlingSPHInstructions>
+                <DescriptionCode>ECC</DescriptionCode>
+            </HandlingSPHInstructions>
+            <HandlingSPHInstructions>
+                <DescriptionCode>SPX</DescriptionCode>
+            </HandlingSPHInstructions>
+<HandlingSPHInstructions>
+                <DescriptionCode>EAP</DescriptionCode>
+            </HandlingSPHInstructions>
+<HandlingSPHInstructions>
+                <DescriptionCode>ELI</DescriptionCode>
+            </HandlingSPHInstructions>
+        </ContainedMasterConsignment> 
+    </ns2:UnitLoadTransportEquipment>
+</ns2:ULDManifest>
