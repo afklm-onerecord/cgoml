@@ -10,8 +10,8 @@
 			<tables>
 				<table name="INBOUND_MESSAGE" cardinality="1" idType="LONG"
 					listRendering="Inbound messages"
-					detailRendering="Inbound message" createEnabled="false"
-					updateEnabled="false" deleteEnabled="false">
+					detailRendering="Inbound message" createEnabled="true"
+					updateEnabled="true" deleteEnabled="true">
 					<columns>
 						<column name="UUID" dataType="STRING" nullable="false"
 							editable="false" rendering="UUID">
@@ -30,10 +30,30 @@
 						</column>
 					</columns>
 				</table>
+				<table name="MESSAGE_VALIDATION_RESULT" cardinality="0"
+					listRendering="Message Validation Results" detailRendering="Message Validation Result"
+					createEnabled="false" updateEnabled="false" deleteEnabled="false">
+					<columns>
+						<column name="INBOUND_MESSAGE_ID" dataType="LONG"
+							nullable="false" referenceTableName="INBOUND_MESSAGE"
+							referenceTableRelation="MANY_TO_ONE_COMPONENT" editable="false"
+							rendering="Inbound message">
+						</column>
+						<column name="LEVEL" dataType="STRING" nullable="true"
+							editable="false" rendering="Level">
+						</column>
+						<column name="MIP_CODE" dataType="STRING" nullable="true"
+							editable="false" rendering="MIP Code">
+						</column>
+						<column name="DESCRIPTION" dataType="STRING" nullable="true"
+							editable="false" rendering="Description">
+						</column>
+					</columns>
+				</table>
 				<table name="OUTBOUND_MESSAGE" cardinality="1" idType="LONG"
 					listRendering="Outbound messages"
-					detailRendering="Outbound message" createEnabled="false"
-					updateEnabled="false" deleteEnabled="false">
+					detailRendering="Outbound message" createEnabled="true"
+					updateEnabled="true" deleteEnabled="true">
 					<columns>
 						<column name="UUID" dataType="STRING" nullable="false"
 							editable="false" rendering="UUID">

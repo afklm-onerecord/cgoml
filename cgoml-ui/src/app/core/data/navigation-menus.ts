@@ -8,6 +8,6 @@ export const navigationMenus: NavMenu[] = [
   },
   {
     text: 'Outbound messages',
-    path: '/oubound-message/list'
+    path: '/outbound-message/list'
   }
 ];

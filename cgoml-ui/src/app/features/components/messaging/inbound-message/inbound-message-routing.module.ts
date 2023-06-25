@@ -1,5 +1,6 @@
 import { InboundMessageDetailsComponent } from './details/inbound-message-details.component';
 import { InboundMessageListComponent } from './list/inbound-message-list.component';
+import { MessageValidationResultListComponent } from './message-validation-result/list/message-validation-result-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 /**
@@ -11,6 +12,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 {path: 'list', component: InboundMessageListComponent }
 ,{path: ':id', component: InboundMessageDetailsComponent }
+,{path: ':id/message-validation-result/list', component: MessageValidationResultListComponent }
 ];
 
 @NgModule({

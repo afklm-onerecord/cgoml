@@ -1,14 +1,18 @@
 package com.afklm.cargo.cgoml.model.messaging;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Index;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -67,6 +71,9 @@ private String content;
 @Column(name = "STATUS")
 private String status;
 
+@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval=true, mappedBy = "inboundMessage")
+private Set <MessageValidationResult> messageValidationResultCollection;
+
 
 /*
  * getters and setters
@@ -117,6 +124,14 @@ return this.status;
 
 public void setStatus(String status) {
 this.status = status;
+}
+
+public Set <MessageValidationResult> getMessageValidationResultCollection () {
+return this.messageValidationResultCollection;
+}
+
+public void setMessageValidationResultCollection(Set <MessageValidationResult> messageValidationResultCollection) {
+this.messageValidationResultCollection = messageValidationResultCollection;
 }
 
 

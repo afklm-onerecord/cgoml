@@ -1,0 +1,44 @@
+<!-- -->
+<!-- auto generated one to many component modal component html file -->
+<!-- write modifications between specific code marks -->
+<!-- processed by skeleton generator -->
+<!-- -->
+
+<div class="modal-form" >
+<form [formGroup]="form" (ngSubmit)="saveOrUpdate()">
+<mat-dialog-content class="text-grey-darker">
+<div>
+<button mat-icon-button mat-dialog-close disableRipple>
+<mat-icon class="text-grey" svgIcon="close"></mat-icon>
+</button>
+</div>
+<section>
+<p>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Level</mat-label>
+<input matInput placeholder="Level" formControlName="level"/>
+</mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>MIP Code</mat-label>
+<input matInput placeholder="MIP Code" formControlName="mipCode"/>
+</mat-form-field>
+</p>
+
+<p>
+<mat-form-field appearance="outline" floatLabel="always">
+<mat-label>Description</mat-label>
+<input matInput placeholder="Description" formControlName="description"/>
+</mat-form-field>
+</p>
+
+</section>
+</mat-dialog-content>
+<mat-dialog-actions>
+</mat-dialog-actions>
+</form>
+<!-- Specific Code Start -->
+<!-- Specific Code End -->
+</div>

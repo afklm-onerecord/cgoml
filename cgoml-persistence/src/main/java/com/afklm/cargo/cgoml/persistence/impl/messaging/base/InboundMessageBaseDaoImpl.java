@@ -10,6 +10,8 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
@@ -21,9 +23,13 @@ import org.sklsft.commons.api.model.OrderType;
 import org.sklsft.commons.model.patterns.BaseDaoImpl;
 
 import com.afklm.cargo.cgoml.api.model.messaging.filters.InboundMessageFilter;
+import com.afklm.cargo.cgoml.api.model.messaging.filters.MessageValidationResultFilter;
 import com.afklm.cargo.cgoml.api.model.messaging.sortings.InboundMessageSorting;
+import com.afklm.cargo.cgoml.api.model.messaging.sortings.MessageValidationResultSorting;
 import com.afklm.cargo.cgoml.model.messaging.InboundMessage;
 import com.afklm.cargo.cgoml.model.messaging.InboundMessage_;
+import com.afklm.cargo.cgoml.model.messaging.MessageValidationResult;
+import com.afklm.cargo.cgoml.model.messaging.MessageValidationResult_;
 import com.afklm.cargo.cgoml.persistence.interfaces.messaging.base.InboundMessageBaseDao;
 
 /**
@@ -120,6 +126,135 @@ return query.getResultList();
 }
 
 /**
+ * load one to many component MessageValidationResult list
+ */
+@Override
+public List<MessageValidationResult> loadMessageValidationResultList(Long inboundMessageId) {
+Session session = this.sessionFactory.getCurrentSession();
+CriteriaBuilder builder = session.getCriteriaBuilder();
+CriteriaQuery<MessageValidationResult> criteria = builder.createQuery(MessageValidationResult.class);
+
+Root<MessageValidationResult> root = criteria.from(MessageValidationResult.class);
+Join<MessageValidationResult, InboundMessage> inboundMessage = root.join(MessageValidationResult_.inboundMessage, JoinType.LEFT);
+
+if (inboundMessageId == null){
+criteria.where(builder.isNull(inboundMessage.get(InboundMessage_.id)));
+} else {
+criteria.where(builder.equal(inboundMessage.get(InboundMessage_.id), inboundMessageId));
+}
+
+criteria.select(root);
+List<Order> orders = new ArrayList<>();
+addOrder(builder, orders, root.get(MessageValidationResult_.id), OrderType.DESC);
+criteria.orderBy(orders);
+
+return session.createQuery(criteria).getResultList();
+}
+
+/**
+ * count one to many component MessageValidationResult
+ */
+@Override
+public Long countMessageValidationResult(Long inboundMessageId) {
+Session session = this.sessionFactory.getCurrentSession();
+CriteriaBuilder builder = session.getCriteriaBuilder();
+CriteriaQuery<Long> criteria = builder.createQuery(Long.class);
+
+Root<MessageValidationResult> root = criteria.from(MessageValidationResult.class);
+Join<MessageValidationResult, InboundMessage> inboundMessage = root.join(MessageValidationResult_.inboundMessage, JoinType.LEFT);
+
+if (inboundMessageId == null){
+criteria.where(builder.isNull(inboundMessage.get(InboundMessage_.id)));
+} else {
+criteria.where(builder.equal(inboundMessage.get(InboundMessage_.id), inboundMessageId));
+}
+
+criteria.select(builder.count(root));
+return session.createQuery(criteria).getSingleResult();
+}
+
+/**
+ * count filtered one to many component MessageValidationResult
+ */
+@Override
+public Long countMessageValidationResult(Long inboundMessageId, MessageValidationResultFilter filter) {
+Session session = this.sessionFactory.getCurrentSession();
+CriteriaBuilder builder = session.getCriteriaBuilder();
+CriteriaQuery<Long> criteria = builder.createQuery(Long.class);
+
+Root<MessageValidationResult> root = criteria.from(MessageValidationResult.class);
+Join<MessageValidationResult, InboundMessage> inboundMessage = root.join(MessageValidationResult_.inboundMessage, JoinType.LEFT);
+
+List<Predicate> predicates = new ArrayList<>();
+addStringStartsWithRestriction(builder, predicates, root.get(MessageValidationResult_.level), filter.getLevel());
+addStringStartsWithRestriction(builder, predicates, root.get(MessageValidationResult_.mipCode), filter.getMipCode());
+addStringStartsWithRestriction(builder, predicates, root.get(MessageValidationResult_.description), filter.getDescription());
+if (inboundMessageId == null){
+predicates.add(builder.isNull(inboundMessage.get(InboundMessage_.id)));
+} else {
+predicates.add(builder.equal(inboundMessage.get(InboundMessage_.id), inboundMessageId));
+}
+criteria.where(predicates.toArray(new Predicate[predicates.size()]));
+
+criteria.select(builder.count(root));
+return session.createQuery(criteria).getSingleResult();
+}
+
+/**
+ * scroll filtered one to many component MessageValidationResult
+ */
+@Override
+public List<MessageValidationResult> scrollMessageValidationResult(Long inboundMessageId, MessageValidationResultFilter filter, MessageValidationResultSorting sorting, Long firstResult, Long maxResults) {
+Session session = this.sessionFactory.getCurrentSession();
+CriteriaBuilder builder = session.getCriteriaBuilder();
+CriteriaQuery<MessageValidationResult> criteria = builder.createQuery(MessageValidationResult.class);
+
+Root<MessageValidationResult> root = criteria.from(MessageValidationResult.class);
+Join<MessageValidationResult, InboundMessage> inboundMessage = root.join(MessageValidationResult_.inboundMessage, JoinType.LEFT);
+
+List<Predicate> predicates = new ArrayList<>();
+addStringStartsWithRestriction(builder, predicates, root.get(MessageValidationResult_.level), filter.getLevel());
+addStringStartsWithRestriction(builder, predicates, root.get(MessageValidationResult_.mipCode), filter.getMipCode());
+addStringStartsWithRestriction(builder, predicates, root.get(MessageValidationResult_.description), filter.getDescription());
+if (inboundMessageId == null){
+predicates.add(builder.isNull(inboundMessage.get(InboundMessage_.id)));
+} else {
+predicates.add(builder.equal(inboundMessage.get(InboundMessage_.id), inboundMessageId));
+}
+criteria.where(predicates.toArray(new Predicate[predicates.size()]));
+
+criteria.select(root);
+List<Order> orders = new ArrayList<>();
+addOrder(builder, orders, root.get(MessageValidationResult_.level), sorting.getLevelOrderType());
+addOrder(builder, orders, root.get(MessageValidationResult_.mipCode), sorting.getMipCodeOrderType());
+addOrder(builder, orders, root.get(MessageValidationResult_.description), sorting.getDescriptionOrderType());
+addOrder(builder, orders, root.get(MessageValidationResult_.id), OrderType.DESC);
+criteria.orderBy(orders);
+
+Query<MessageValidationResult> query = session.createQuery(criteria);
+if (firstResult != null){
+query.setFirstResult(firstResult.intValue());
+}
+if (maxResults != null){
+query.setMaxResults(maxResults.intValue());
+}
+return query.getResultList();
+}
+
+/**
+ * load one to many component MessageValidationResult
+ */
+@Override
+public MessageValidationResult loadMessageValidationResult(Long id) {
+MessageValidationResult messageValidationResult = (MessageValidationResult)this.sessionFactory.getCurrentSession().get(MessageValidationResult.class,id);
+if (messageValidationResult == null) {
+throw new ObjectNotFoundException("MessageValidationResult.notFound");
+} else {
+return messageValidationResult;
+}
+}
+
+/**
  * find object or null
  */
 @Override
@@ -165,6 +300,24 @@ return false;
 }
 InboundMessage inboundMessage = findOrNull(uuid);
 return inboundMessage != null;
+}
+
+/**
+ * save one to many component MessageValidationResult
+ */
+@Override
+public void saveMessageValidationResult(InboundMessage inboundMessage, MessageValidationResult messageValidationResult) {
+messageValidationResult.setInboundMessage(inboundMessage);
+this.sessionFactory.getCurrentSession().save(messageValidationResult);
+}
+
+/**
+ * delete one to many component MessageValidationResult
+ */
+@Override
+public void deleteMessageValidationResult(MessageValidationResult messageValidationResult) {
+messageValidationResult.getInboundMessage().getMessageValidationResultCollection().remove(messageValidationResult);
+this.sessionFactory.getCurrentSession().delete(messageValidationResult);
 }
 
 }

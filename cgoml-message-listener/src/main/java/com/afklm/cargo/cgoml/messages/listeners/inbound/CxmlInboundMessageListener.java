@@ -14,9 +14,11 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 import com.afklm.cargo.cgocore.api.model.core.validation.ValidationReport;
+import com.afklm.cargo.cgocore.api.model.core.validation.ValidationResult;
 import com.afklm.cargo.cgoml.api.interfaces.messaging.InboundMessageService;
 import com.afklm.cargo.cgoml.api.model.messaging.MessageStatuses;
 import com.afklm.cargo.cgoml.api.model.messaging.forms.InboundMessageForm;
+import com.afklm.cargo.cgoml.api.model.messaging.forms.MessageValidationResultForm;
 import com.afklm.cargo.cgoml.messages.resolver.CxmlMessageTypeResolver;
 import com.afklm.cargo.cgoml.messages.resolver.CxmlMessageTypes;
 import com.afklm.cargo.cgoml.services.CxmlInboundMessageReceiver;
@@ -63,6 +65,13 @@ public class CxmlInboundMessageListener {
 					form.setStatus(MessageStatuses.REJECTED.name());
 				} else {
 					form.setStatus(MessageStatuses.PROCESSED.name());
+				}
+				for (ValidationResult validationResult:report.getResults()) {
+					MessageValidationResultForm validationResultForm = new MessageValidationResultForm();
+					validationResultForm.setMipCode(validationResult.getMipCode());
+					validationResultForm.setLevel(validationResult.getLevel());
+					validationResultForm.setDescription(validationResult.getDescription());
+					inboundMessageService.saveMessageValidationResult(id, validationResultForm);
 				}
 			} catch (Exception e) {
 				form.setStatus(MessageStatuses.REJECTED.name());

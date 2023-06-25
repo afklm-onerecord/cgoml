@@ -4,6 +4,8 @@ import { InboundMessageListComponent } from './list/inbound-message-list.compone
 import { InboundMessageMenuComponent } from './menu/inbound-message-menu.component';
 import { InboundMessageModalComponent } from './modal/inbound-message-modal.component';
 import { InboundMessageRoutingModule } from './inbound-message-routing.module';
+import { MessageValidationResultListComponent } from './message-validation-result/list/message-validation-result-list.component';
+import { MessageValidationResultModalComponent } from './message-validation-result/modal/message-validation-result-modal.component';
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 /**
@@ -13,7 +15,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
  */
 
 @NgModule({
-declarations: [InboundMessageListComponent,InboundMessageDetailsComponent, InboundMessageModalComponent, InboundMessageMenuComponent],
+declarations: [InboundMessageListComponent,InboundMessageDetailsComponent, InboundMessageModalComponent, InboundMessageMenuComponent, MessageValidationResultListComponent, MessageValidationResultModalComponent],
 imports: [CommonModule, SharedModule, InboundMessageRoutingModule]
 })
 export class InboundMessageModule { }

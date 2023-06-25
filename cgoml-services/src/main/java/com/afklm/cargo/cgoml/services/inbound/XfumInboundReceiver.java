@@ -2,8 +2,6 @@ package com.afklm.cargo.cgoml.services.inbound;
 
 import javax.inject.Inject;
 
-import javax.inject.Inject;
-
 import org.springframework.stereotype.Component;
 
 import com.afklm.cargo.cgocore.api.interfaces.core.FlightPreparationCoreService;
